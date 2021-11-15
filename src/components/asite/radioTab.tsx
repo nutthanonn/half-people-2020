@@ -34,7 +34,7 @@ const RadioTab: React.FC<RadioProps> = observer(({ categoriesNameApi }) => {
         <RadioGroup
           aria-label="gender"
           defaultValue={values}
-          onChange={(e) => console.log(e.target.value)}
+          onChange={(e) => categoriesNameApi.Title(e.target.value)}
         >
           <FormControlLabel
             value="ทั้งหมด"

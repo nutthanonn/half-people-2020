@@ -28,14 +28,17 @@ interface apiTypes {
 
 export class apiStoreImpl {
   Api: apiTypes = {};
+  title: string = "ทั้งหมด";
   defaultSelect = [];
 
   constructor() {
     makeObservable(this, {
       Api: observable,
+      title: observable,
       setApi: action,
       Provinces: action,
       Categories: action,
+      Title: action,
     });
   }
 
@@ -58,6 +61,10 @@ export class apiStoreImpl {
       }
     }
     return [];
+  }
+
+  Title(type: string) {
+    this.title = type;
   }
 }
 

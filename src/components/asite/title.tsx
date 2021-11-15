@@ -1,13 +1,22 @@
-import React from "react";
-import { Box, Typography, Container } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { Box, Typography } from "@mui/material";
 import { observer } from "mobx-react";
+import { apiStoreImpl } from "../../stores/apiStore";
 
-const Title: React.FC = observer(() => {
+interface TitleProps {
+  title: apiStoreImpl;
+}
+
+const Title: React.FC<TitleProps> = observer(({ title }) => {
+  const [text, setText] = useState<string>("");
+
+  useEffect(() => {
+    setText(title.title);
+  }, [title.title]);
+
   return (
     <Box sx={{ ml: 2 }}>
-      <Typography variant="h6">
-        <b>ผลการค้นหา : </b>
-      </Typography>
+      <Typography variant="h6">ผลการค้นหา {text}</Typography>
     </Box>
   );
 });
