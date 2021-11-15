@@ -28,6 +28,9 @@ const PriceofRange: React.FC<SelecterProps> = observer(({ priceofRange }) => {
         <FormControl sx={{ width: "90%" }}>
           <Select
             size="small"
+            sx={{
+              height: 30,
+            }}
             defaultValue={priceRangeValues}
             onChange={(e) => setPriceRangeValues(e.target.value)}
             value={priceRangeValues}

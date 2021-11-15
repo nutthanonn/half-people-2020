@@ -9,13 +9,14 @@ import {
 } from "@mui/material";
 import { observer } from "mobx-react";
 import { apiStoreImpl } from "../../stores/apiStore";
+import { SkeletonTypeChoice } from "./skeletonGroup";
 
 interface RadioProps {
   categoriesNameApi: apiStoreImpl;
 }
 
 const RadioTab: React.FC<RadioProps> = observer(({ categoriesNameApi }) => {
-  const [categories, setCategories] = useState<string[]>([]);
+  const [categories, setCategories] = useState<string[] | null>(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -29,6 +30,7 @@ const RadioTab: React.FC<RadioProps> = observer(({ categoriesNameApi }) => {
       <Typography variant="h6" sx={{ my: 2 }}>
         ประเภทร้านค้า
       </Typography>
+
       <FormControl component="fieldset">
         <RadioGroup
           aria-label="Name of restaurant"
@@ -40,11 +42,17 @@ const RadioTab: React.FC<RadioProps> = observer(({ categoriesNameApi }) => {
             control={<Radio />}
             label="ทั้งหมด"
           />
-          {categories.map((item) => {
-            return (
-              <FormControlLabel value={item} control={<Radio />} label={item} />
-            );
-          })}
+          {!categories && <SkeletonTypeChoice />}
+          {categories &&
+            categories.map((item) => {
+              return (
+                <FormControlLabel
+                  value={item}
+                  control={<Radio />}
+                  label={item}
+                />
+              );
+            })}
         </RadioGroup>
       </FormControl>
     </Box>

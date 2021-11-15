@@ -76,11 +76,17 @@ export class apiStoreImpl {
   }
 
   TypeRestaurant() {
+    let text = this.title;
+    if (text === "ทั้งหมด") {
+      return [];
+    }
     if (this.Api.categories) {
-      const res = this.Api.categories.filter(
+      const res = this.Api.categories?.filter(
         (item) => item.name === this.title
       );
-      return res;
+      const response: string[] | undefined = res[0].subcategories;
+      const uniq: any[] = [...new Set(response)];
+      return uniq;
     }
     return [];
   }

@@ -29,6 +29,9 @@ const NearProvince: React.FC<SelecterProps> = observer(
           </Typography>
           <FormControl sx={{ width: "90%" }}>
             <Select
+              sx={{
+                height: 30,
+              }}
               size="small"
               defaultValue={values}
               onChange={(e) => setValues(e.target.value)}

@@ -6,7 +6,9 @@ import {
   FormControlLabel,
   Radio,
   RadioGroup,
+  Skeleton,
 } from "@mui/material";
+import { SkeletonTypeChoice } from "./skeletonGroup";
 import { observer } from "mobx-react";
 import { apiStoreImpl } from "../../stores/apiStore";
 import { setTimeout } from "timers";
@@ -18,14 +20,15 @@ interface TypeOfRestaurantProps {
 const TypeOfRestaurant: React.FC<TypeOfRestaurantProps> = observer(
   ({ typeOfRestaurant }) => {
     const [text, setText] = useState<string>("");
-    const [values, setValues] = useState<string[]>([]);
+    const [values, setValues] = useState<string[] | null>(null);
 
     useEffect(() => {
       setText(typeOfRestaurant.title);
+      setValues(null);
       setTimeout(() => {
         const res = typeOfRestaurant.TypeRestaurant();
-        console.log(res[0].subcategories);
-      }, 800);
+        setValues(res);
+      }, 700);
     }, [typeOfRestaurant.title, typeOfRestaurant]);
 
     return (
@@ -41,7 +44,17 @@ const TypeOfRestaurant: React.FC<TypeOfRestaurantProps> = observer(
                 control={<Radio />}
                 label="ทั้งหมด"
               />
-              {/* ????????? map-item */}
+              {!values && <SkeletonTypeChoice />}
+              {values &&
+                values.map((item) => {
+                  return (
+                    <FormControlLabel
+                      value={item}
+                      control={<Radio />}
+                      label={item}
+                    />
+                  );
+                })}
             </RadioGroup>
           </FormControl>
         </Box>
