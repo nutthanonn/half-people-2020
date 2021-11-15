@@ -19,7 +19,7 @@ interface merchantsProps {
   addressDistrictName: string;
 }
 
-interface apitypes {
+interface apiTypes {
   categories?: categoriesProps[];
   provinces?: string[];
   priceRange?: string[];
@@ -27,21 +27,37 @@ interface apitypes {
 }
 
 export class apiStoreImpl {
-  Api: apitypes = {};
+  Api: apiTypes = {};
+  defaultSelect = [];
 
   constructor() {
     makeObservable(this, {
       Api: observable,
+      setApi: action,
       Provinces: action,
+      Categories: action,
     });
   }
 
-  setApi(type: apitypes) {
+  setApi(type: apiTypes) {
     this.Api = type;
   }
 
   Provinces() {
-    return this.Api.provinces;
+    if (this.Api.provinces) {
+      return this.Api.provinces;
+    }
+    return [];
+  }
+
+  Categories(type: string) {
+    if (this.Api.categories) {
+      if (type === "name") {
+        const res = this.Api.categories.map((item) => item.name);
+        return res;
+      }
+    }
+    return [];
   }
 }
 

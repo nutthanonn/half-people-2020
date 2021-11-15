@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { apiStoreImpl } from "./stores/apiStore";
+import Main from "./pages/main";
 import Api from "./api/api";
-import "@fontsource/roboto/300.css";
+import { apiStoreImpl } from "./stores/apiStore";
 import { observer } from "mobx-react";
 
 interface AppProps {
@@ -17,11 +17,11 @@ const App: React.FC<AppProps> = observer(({ apiStore }) => {
     }
 
     fetch();
-  }, []);
+  }, [apiStore]);
 
   return (
     <div>
-      <p>Hello</p>
+      <Main />
     </div>
   );
 });
