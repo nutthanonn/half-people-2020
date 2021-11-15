@@ -39,6 +39,7 @@ const TypeOfRestaurant: React.FC<TypeOfRestaurantProps> = observer(
           <FormControl component="fieldset">
             <RadioGroup aria-label="type of restaurant">
               <FormControlLabel
+                sx={{ "& .MuiTypography-root": { fontSize: 14 } }}
                 value="ทั้งหมด"
                 control={
                   <Radio
@@ -56,6 +57,7 @@ const TypeOfRestaurant: React.FC<TypeOfRestaurantProps> = observer(
                 values.map((item) => {
                   return (
                     <FormControlLabel
+                      sx={{ "& .MuiTypography-root": { fontSize: 14 } }}
                       value={item}
                       control={
                         <Radio

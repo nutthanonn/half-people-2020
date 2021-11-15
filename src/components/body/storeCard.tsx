@@ -1,10 +1,10 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 
 const StoreCard: React.FC = () => {
   return (
     <Box>
-      <p>Hello</p>
+      <p>Helo</p>
     </Box>
   );
 };
