@@ -45,7 +45,8 @@ const NearProvince: React.FC<SelecterProps> = observer(
               {provinces.map((item) => {
                 return (
                   <MenuItem value={item} key={item}>
-                    {item}
+                    <IoLocationSharp />
+                    &nbsp; {item}
                   </MenuItem>
                 );
               })}

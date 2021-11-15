@@ -85,7 +85,7 @@ export class apiStoreImpl {
         (item) => item.name === this.title
       );
       const response: string[] | undefined = res[0].subcategories;
-      const uniq: any[] = [...new Set(response)];
+      const uniq = [...new Set(response)];
       return uniq;
     }
     return [];

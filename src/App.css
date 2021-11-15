@@ -1,6 +1,13 @@
 html {
   scroll-behavior: smooth;
 }
+body {
+  background: linear-gradient(
+    184deg,
+    rgba(255, 255, 255, 1) 48%,
+    rgba(138, 196, 233, 1) 84%
+  );
+}
 
 * {
   font-family: "Kanit", sans-serif;

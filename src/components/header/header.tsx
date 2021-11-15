@@ -73,7 +73,8 @@ const Header: React.FC<HeaderProps> = observer(({ provincesApi }) => {
               {provinces.map((item) => {
                 return (
                   <MenuItem value={item} key={item}>
-                    {item}
+                    <IoLocationSharp />
+                    &nbsp; {item}
                   </MenuItem>
                 );
               })}

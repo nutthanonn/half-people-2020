@@ -41,6 +41,11 @@ const RadioTab: React.FC<RadioProps> = observer(({ categoriesNameApi }) => {
             value="ทั้งหมด"
             control={<Radio />}
             label="ทั้งหมด"
+            sx={{
+              "&.Mui-checked": {
+                color: "#2196f3",
+              },
+            }}
           />
           {!categories && <SkeletonTypeChoice />}
           {categories &&
@@ -48,7 +53,15 @@ const RadioTab: React.FC<RadioProps> = observer(({ categoriesNameApi }) => {
               return (
                 <FormControlLabel
                   value={item}
-                  control={<Radio />}
+                  control={
+                    <Radio
+                      sx={{
+                        "&.Mui-checked": {
+                          color: "#2196f3",
+                        },
+                      }}
+                    />
+                  }
                   label={item}
                 />
               );

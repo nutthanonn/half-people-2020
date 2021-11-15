@@ -6,7 +6,6 @@ import {
   FormControlLabel,
   Radio,
   RadioGroup,
-  Skeleton,
 } from "@mui/material";
 import { SkeletonTypeChoice } from "./skeletonGroup";
 import { observer } from "mobx-react";
@@ -41,7 +40,15 @@ const TypeOfRestaurant: React.FC<TypeOfRestaurantProps> = observer(
             <RadioGroup aria-label="type of restaurant">
               <FormControlLabel
                 value="ทั้งหมด"
-                control={<Radio />}
+                control={
+                  <Radio
+                    sx={{
+                      "&.Mui-checked": {
+                        color: "#2196f3",
+                      },
+                    }}
+                  />
+                }
                 label="ทั้งหมด"
               />
               {!values && <SkeletonTypeChoice />}
@@ -50,7 +57,15 @@ const TypeOfRestaurant: React.FC<TypeOfRestaurantProps> = observer(
                   return (
                     <FormControlLabel
                       value={item}
-                      control={<Radio />}
+                      control={
+                        <Radio
+                          sx={{
+                            "&.Mui-checked": {
+                              color: "#2196f3",
+                            },
+                          }}
+                        />
+                      }
                       label={item}
                     />
                   );
