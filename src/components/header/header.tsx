@@ -23,7 +23,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = observer(({ provincesApi }) => {
   const [provinces, setProvinces] = useState<string[]>([]);
-  const [value, setValues] = useState("test");
+  const [value, setValues] = useState("default");
 
   useEffect(() => {
     setTimeout(() => {
@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = observer(({ provincesApi }) => {
   }, [provincesApi]);
 
   return (
-    <Box sx={{ position: "sticky", top: 0, left: 0 }}>
+    <Box sx={{ mt: 0 }}>
       <CssBaseline />
       <Container
         sx={{
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = observer(({ provincesApi }) => {
         <Box sx={{ flexGrow: 1 }}>
           <Typography>Hello</Typography>
         </Box>
-        <ButtonGroup sx={{ border: 1, width: "90%" }}>
+        <ButtonGroup sx={{ width: "90%" }}>
           <FormControl
             sx={{
               width: 200,
@@ -66,9 +66,9 @@ const Header: React.FC<HeaderProps> = observer(({ provincesApi }) => {
               value={value}
               IconComponent={IoIosArrowDown}
             >
-              <MenuItem disabled={true} value="test">
+              <MenuItem disabled={true} value="default">
                 <IoLocationSharp />
-                &nbsp; Hello
+                &nbsp; พื้นที่ใกล้ฉัน
               </MenuItem>
               {provinces.map((item) => {
                 return (

@@ -11,12 +11,16 @@ const Title: React.FC<TitleProps> = observer(({ title }) => {
   const [text, setText] = useState<string>("");
 
   useEffect(() => {
-    setText(title.title);
+    if (title.title === "ทั้งหมด") {
+      setText("");
+    } else {
+      setText(title.title);
+    }
   }, [title.title]);
 
   return (
-    <Box sx={{ ml: 2 }}>
-      <Typography variant="h6">ผลการค้นหา {text}</Typography>
+    <Box sx={{ ml: 2, my: 2 }}>
+      <Typography variant="h6">ผลการค้นหา {text} ทั้งหมด</Typography>
     </Box>
   );
 });

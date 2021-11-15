@@ -28,8 +28,7 @@ interface apiTypes {
 
 export class apiStoreImpl {
   Api: apiTypes = {};
-  title: string = "ทั้งหมด";
-  defaultSelect = [];
+  title: string = "ร้านอาหารและเครื่องดื่ม";
 
   constructor() {
     makeObservable(this, {
@@ -39,6 +38,8 @@ export class apiStoreImpl {
       Provinces: action,
       Categories: action,
       Title: action,
+      PriceRange: action,
+      TypeRestaurant: action,
     });
   }
 
@@ -65,6 +66,23 @@ export class apiStoreImpl {
 
   Title(type: string) {
     this.title = type;
+  }
+
+  PriceRange() {
+    if (this.Api.priceRange) {
+      return this.Api.priceRange;
+    }
+    return [];
+  }
+
+  TypeRestaurant() {
+    if (this.Api.categories) {
+      const res = this.Api.categories.filter(
+        (item) => item.name === this.title
+      );
+      return res;
+    }
+    return [];
   }
 }
 

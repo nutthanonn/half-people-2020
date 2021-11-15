@@ -1,12 +1,20 @@
 import React from "react";
 import { Box, Grid, Paper } from "@mui/material";
 import RadioTab from "./asite/radioTab";
+import NearProvince from "./asite/nearProvince";
+import PriceofRange from "./asite/priceofRange";
+import TypeOfRestaurant from "./asite/typeOfRestaurant";
 import { apiStore } from "../stores/apiStore";
 
 const Asite: React.FC = () => {
   return (
     <Box sx={{ border: 1 }}>
-      <RadioTab categoriesNameApi={apiStore} />
+      <Box sx={{ pl: 2.2 }}>
+        <RadioTab categoriesNameApi={apiStore} />
+        <NearProvince nearProvinceApi={apiStore} />
+        <PriceofRange priceofRange={apiStore} />
+        <TypeOfRestaurant typeOfRestaurant={apiStore} />
+      </Box>
     </Box>
   );
 };

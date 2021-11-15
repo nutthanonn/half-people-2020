@@ -16,7 +16,6 @@ interface RadioProps {
 
 const RadioTab: React.FC<RadioProps> = observer(({ categoriesNameApi }) => {
   const [categories, setCategories] = useState<string[]>([]);
-  const [values, setValues] = useState("ทั้งหมด");
 
   useEffect(() => {
     setTimeout(() => {
@@ -32,8 +31,8 @@ const RadioTab: React.FC<RadioProps> = observer(({ categoriesNameApi }) => {
       </Typography>
       <FormControl component="fieldset">
         <RadioGroup
-          aria-label="gender"
-          defaultValue={values}
+          aria-label="Name of restaurant"
+          defaultValue="ร้านอาหารและเครื่องดื่ม"
           onChange={(e) => categoriesNameApi.Title(e.target.value)}
         >
           <FormControlLabel
