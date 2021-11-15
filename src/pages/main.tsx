@@ -20,7 +20,7 @@ const Main: React.FC = () => {
               <Asite />
             </Grid>
             <Grid md={9}>
-              <Box sx={{ mx: 2, ml: 5, border: 1 }}>
+              <Box sx={{ mx: 2, ml: 5 }}>
                 <StoreCard />
               </Box>
             </Grid>
