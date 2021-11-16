@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import StoreCardTitle from "./storeComponent/storeCardTitle";
+import StoreCardImage from "./storeComponent/storeCardImage";
 import { Box, Paper } from "@mui/material";
 import { observer } from "mobx-react";
 import { apiStoreImpl } from "../../stores/apiStore";
@@ -9,7 +10,23 @@ interface StoreCard {
   storeCardApi: apiStoreImpl;
 }
 
+interface stateItem {
+  shopNameTH?: string;
+  categoryName?: string;
+  subcategoryName?: string;
+  coverImageId?: string;
+  facilities?: string[];
+  priceLevel?: number;
+  isOpen?: string;
+  highlightText?: string;
+  recommendedItems?: string[];
+  addressProvinceName?: string;
+  addressDistrictName?: string;
+}
+
 const StoreCard: React.FC<StoreCard> = observer(({ storeCardApi }) => {
+  const [data, setData] = useState<stateItem | null>(null);
+
   return (
     <Box>
       {test.map((item) => {
@@ -25,21 +42,7 @@ const StoreCard: React.FC<StoreCard> = observer(({ storeCardApi }) => {
               mb: 2,
             }}
           >
-            <Box
-              sx={{
-                p: 0.5,
-                display: "flex",
-                justifyContent: "center",
-                overflow: "hidden",
-              }}
-            >
-              <img
-                src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80"
-                alt=""
-                width="270"
-                height="250"
-              />
-            </Box>
+            <StoreCardImage />
             {/* Text component */}
             <Box sx={{ mt: 1.5, ml: 0.5 }}>
               <StoreCardTitle />

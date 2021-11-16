@@ -26,8 +26,10 @@ const StoreCardTitle: React.FC = () => {
           </Box>
           <Box sx={{ display: "flex", flexDirection: "row" }}>
             <Typography color="gray">
+              {/* Text */}
               อาหารทั่วไป อาหารตามสั่ง อาหารจานเดียว
             </Typography>
+            {/* Function map */}
             <Typography>s</Typography>
             <Typography>s</Typography>
           </Box>
