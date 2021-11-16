@@ -8,8 +8,15 @@ import { apiStore } from "../stores/apiStore";
 
 const Asite: React.FC = () => {
   return (
-    <Box sx={{ border: 1, bgcolor: "white" }}>
-      <Box sx={{ pl: 2.2 }}>
+    <Box
+      sx={{
+        border: 1,
+        bgcolor: "white",
+        display: { sm: "none", md: "flex" },
+        borderColor: "blue",
+      }}
+    >
+      <Box sx={{ pl: 2.2, width: "100%" }}>
         <RadioTab categoriesNameApi={apiStore} />
         <NearProvince nearProvinceApi={apiStore} />
         <PriceofRange priceofRange={apiStore} />
