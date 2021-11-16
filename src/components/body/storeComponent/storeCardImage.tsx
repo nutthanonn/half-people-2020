@@ -21,7 +21,7 @@ const StoreCardImage: React.FC<StoreCardImageProps> = ({ imageTag }) => {
           component="img"
           src={imageTag}
           alt=""
-          sx={{ width: 270, height: 250 }}
+          sx={{ width: 270, height: 240 }}
         />
       </Box>
     </Box>

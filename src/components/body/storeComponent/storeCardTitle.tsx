@@ -1,15 +1,19 @@
 import React from "react";
 import OpenClose from "../storeComponent/openClose";
 import PriceLevelBox from "./priceLevelBox";
-import { Box, Typography, Divider, Rating } from "@mui/material";
+import StoreCardSubtitle from "./storeCardSubtitle";
+import { Box, Typography, Divider } from "@mui/material";
 
 interface StoreCardTitleProps {
-  shopName?: string | undefined;
-  subCategoriesName?: string | undefined;
-  priceLevel?: number | undefined;
-  isOpen?: string | undefined;
-  addressDistrictName?: string | undefined;
-  addressProvinceName?: string | undefined;
+  shopName?: string;
+  subCategoriesName?: string;
+  priceLevel?: number;
+  isOpen?: string;
+  addressDistrictName?: string;
+  addressProvinceName?: string;
+  highlightText: string | undefined;
+  facilities?: string[];
+  recommendedItems?: string[];
 }
 
 const StoreCardTitle: React.FC<StoreCardTitleProps> = ({
@@ -19,10 +23,13 @@ const StoreCardTitle: React.FC<StoreCardTitleProps> = ({
   isOpen,
   addressDistrictName,
   addressProvinceName,
+  highlightText,
+  facilities,
+  recommendedItems,
 }) => {
   return (
     <Box>
-      <Box sx={{ ml: 3, border: 1 }}>
+      <Box sx={{ ml: 3 }}>
         <Box
           sx={{
             display: "flex",
@@ -48,20 +55,32 @@ const StoreCardTitle: React.FC<StoreCardTitleProps> = ({
               alignItems: "center",
             }}
           >
-            <Typography color="gray">{subCategoriesName}</Typography>
-            {/* Function map */}
+            <Typography color="gray" sx={{ fontSize: 13 }}>
+              {subCategoriesName} &nbsp;
+            </Typography>
+
             {priceLevel ? (
               <PriceLevelBox priceLevel={priceLevel} />
             ) : (
               <Box></Box>
             )}
+
+            {addressDistrictName || addressProvinceName ? (
+              <Typography color="gray" sx={{ fontSize: 13 }}>
+                | &nbsp;{addressDistrictName} {addressProvinceName}
+              </Typography>
+            ) : (
+              <Box></Box>
+            )}
           </Box>
         </Box>
+        <Divider sx={{ width: 500, my: 2 }} />
         <Box>
-          <Divider sx={{ width: 500, my: 2 }} />
-        </Box>
-        <Box>
-          <Typography>Hello</Typography>
+          <StoreCardSubtitle
+            highlightText={highlightText}
+            facilities={facilities}
+            recommendedItems={recommendedItems}
+          />
         </Box>
       </Box>
     </Box>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Rating, Box } from "@mui/material";
+import { Rating, Box, Typography } from "@mui/material";
 
 interface PriceLevelBoxProps {
   priceLevel: number | undefined;
@@ -7,16 +7,20 @@ interface PriceLevelBoxProps {
 
 const PriceLevelBox: React.FC<PriceLevelBoxProps> = ({ priceLevel }) => {
   return (
-    <Box>
+    <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Typography color="gray" sx={{ fontSize: 13 }}>
+        | &nbsp;
+      </Typography>
       <Rating
         size="small"
         name="read-only"
         value={priceLevel}
         readOnly
         icon="฿"
-        sx={{ color: "black" }}
+        sx={{ color: "black", fontSize: 13 }}
         emptyIcon="฿"
       />
+      &nbsp;
     </Box>
   );
 };

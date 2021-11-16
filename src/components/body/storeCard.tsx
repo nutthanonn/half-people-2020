@@ -5,8 +5,7 @@ import { Box, Paper } from "@mui/material";
 import { observer } from "mobx-react";
 import { apiStoreImpl } from "../../stores/apiStore";
 
-const test = [1, 2, 3, 4, 5];
-interface StoreCard {
+interface StoreCardProps {
   storeCardApi: apiStoreImpl;
 }
 
@@ -24,7 +23,7 @@ interface stateItem {
   addressDistrictName?: string;
 }
 
-const StoreCard: React.FC<StoreCard> = observer(({ storeCardApi }) => {
+const StoreCard: React.FC<StoreCardProps> = observer(({ storeCardApi }) => {
   const [data, setData] = useState<stateItem[]>([]);
 
   useEffect(() => {
@@ -59,6 +58,9 @@ const StoreCard: React.FC<StoreCard> = observer(({ storeCardApi }) => {
                 isOpen={item.isOpen}
                 addressDistrictName={item.addressDistrictName}
                 addressProvinceName={item.addressProvinceName}
+                highlightText={item.highlightText}
+                facilities={item.facilities}
+                recommendedItems={item.recommendedItems}
               />
             </Box>
           </Paper>
