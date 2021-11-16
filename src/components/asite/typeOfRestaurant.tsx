@@ -37,7 +37,7 @@ const TypeOfRestaurant: React.FC<TypeOfRestaurantProps> = observer(
             ประเภทร้านค้า{text}
           </Typography>
           <FormControl component="fieldset">
-            <RadioGroup aria-label="type of restaurant">
+            <RadioGroup aria-label="type of restaurant" defaultValue="ทั้งหมด">
               <FormControlLabel
                 sx={{ "& .MuiTypography-root": { fontSize: 14 } }}
                 value="ทั้งหมด"

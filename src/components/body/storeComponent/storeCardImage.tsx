@@ -2,10 +2,10 @@ import React from "react";
 import { Box } from "@mui/material";
 
 interface StoreCardImageProps {
-  imageTag: string;
+  imageTag: string | undefined;
 }
 
-const StoreCardImage: React.FC = () => {
+const StoreCardImage: React.FC<StoreCardImageProps> = ({ imageTag }) => {
   return (
     <Box>
       <Box
@@ -14,13 +14,14 @@ const StoreCardImage: React.FC = () => {
           display: "flex",
           justifyContent: "center",
           overflow: "hidden",
+          backgroundSize: "cover",
         }}
       >
-        <img
-          src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80"
+        <Box
+          component="img"
+          src={imageTag}
           alt=""
-          width="270"
-          height="250"
+          sx={{ width: 270, height: 250 }}
         />
       </Box>
     </Box>

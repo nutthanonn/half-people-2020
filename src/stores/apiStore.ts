@@ -6,17 +6,17 @@ interface categoriesProps {
 }
 
 interface merchantsProps {
-  shopNameTH: string;
-  categoryName: string;
-  subcategoryName: string;
-  coverImageId: string;
-  facilities: string[];
-  priceLevel: number;
-  isOpen: string;
-  highlightText: string;
-  recommendedItems: string[];
-  addressProvinceName: string;
-  addressDistrictName: string;
+  shopNameTH?: string;
+  categoryName?: string;
+  subcategoryName?: string;
+  coverImageId?: string;
+  facilities?: string[];
+  priceLevel?: number;
+  isOpen?: string;
+  highlightText?: string;
+  recommendedItems?: string[];
+  addressProvinceName?: string;
+  addressDistrictName?: string;
 }
 
 interface apiTypes {
@@ -40,6 +40,7 @@ export class apiStoreImpl {
       Title: action,
       PriceRange: action,
       TypeRestaurant: action,
+      StoreCardData: action,
     });
   }
 
@@ -91,10 +92,11 @@ export class apiStoreImpl {
     return [];
   }
 
-  StoreCard() {
+  StoreCardData() {
     if (this.Api.merchants) {
       return this.Api.merchants;
     }
+    return [];
   }
 }
 

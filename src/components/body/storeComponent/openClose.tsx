@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 
 interface OpenCloseProps {
-  status: string;
+  status: string | undefined;
 }
 
 function Open() {
@@ -39,13 +39,22 @@ function Close() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        bgcolor: "#A1A1A1",
-        borderRadius: 1,
-        width: 40,
-        height: 20,
+        ml: 2,
       }}
     >
-      <Typography sx={{ color: "white", fontSize: 8 }}>ปิดแล้ว</Typography>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          bgcolor: "#A1A1A1",
+          borderRadius: 1,
+          width: 40,
+          height: 20,
+        }}
+      >
+        <Typography sx={{ color: "white", fontSize: 8 }}>ปิดแล้ว</Typography>
+      </Box>
     </Box>
   );
 }

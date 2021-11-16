@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import StoreCardTitle from "./storeComponent/storeCardTitle";
 import StoreCardImage from "./storeComponent/storeCardImage";
 import { Box, Paper } from "@mui/material";
@@ -25,11 +25,18 @@ interface stateItem {
 }
 
 const StoreCard: React.FC<StoreCard> = observer(({ storeCardApi }) => {
-  const [data, setData] = useState<stateItem | null>(null);
+  const [data, setData] = useState<stateItem[]>([]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      const res = storeCardApi.StoreCardData();
+      setData(res);
+    }, 800);
+  }, [storeCardApi]);
 
   return (
     <Box>
-      {test.map((item) => {
+      {data.map((item) => {
         return (
           <Paper
             elevation={0}
@@ -39,13 +46,20 @@ const StoreCard: React.FC<StoreCard> = observer(({ storeCardApi }) => {
               borderColor: "#E0EBF0",
               display: "flex",
               flexDirection: "row",
-              mb: 2,
+              mb: 1.5,
             }}
           >
-            <StoreCardImage />
+            <StoreCardImage imageTag={item.coverImageId} />
             {/* Text component */}
             <Box sx={{ mt: 1.5, ml: 0.5 }}>
-              <StoreCardTitle />
+              <StoreCardTitle
+                shopName={item.shopNameTH}
+                subCategoriesName={item.subcategoryName}
+                priceLevel={item.priceLevel}
+                isOpen={item.isOpen}
+                addressDistrictName={item.addressDistrictName}
+                addressProvinceName={item.addressProvinceName}
+              />
             </Box>
           </Paper>
         );

@@ -1,8 +1,25 @@
 import React from "react";
 import OpenClose from "../storeComponent/openClose";
-import { Box, Typography, Divider } from "@mui/material";
+import PriceLevelBox from "./priceLevelBox";
+import { Box, Typography, Divider, Rating } from "@mui/material";
 
-const StoreCardTitle: React.FC = () => {
+interface StoreCardTitleProps {
+  shopName?: string | undefined;
+  subCategoriesName?: string | undefined;
+  priceLevel?: number | undefined;
+  isOpen?: string | undefined;
+  addressDistrictName?: string | undefined;
+  addressProvinceName?: string | undefined;
+}
+
+const StoreCardTitle: React.FC<StoreCardTitleProps> = ({
+  shopName,
+  subCategoriesName,
+  priceLevel,
+  isOpen,
+  addressDistrictName,
+  addressProvinceName,
+}) => {
   return (
     <Box>
       <Box sx={{ ml: 3, border: 1 }}>
@@ -20,18 +37,24 @@ const StoreCardTitle: React.FC = () => {
             }}
           >
             <Typography variant="h6">
-              <b>YWC Shop</b>
+              <b>{shopName}</b>
             </Typography>
-            <OpenClose status={"Y"} />
+            <OpenClose status={isOpen} />
           </Box>
-          <Box sx={{ display: "flex", flexDirection: "row" }}>
-            <Typography color="gray">
-              {/* Text */}
-              อาหารทั่วไป อาหารตามสั่ง อาหารจานเดียว
-            </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
+            <Typography color="gray">{subCategoriesName}</Typography>
             {/* Function map */}
-            <Typography>s</Typography>
-            <Typography>s</Typography>
+            {priceLevel ? (
+              <PriceLevelBox priceLevel={priceLevel} />
+            ) : (
+              <Box></Box>
+            )}
           </Box>
         </Box>
         <Box>
