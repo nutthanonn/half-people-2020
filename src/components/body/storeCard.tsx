@@ -2,10 +2,14 @@ import React from "react";
 import StoreCardTitle from "./storeComponent/storeCardTitle";
 import { Box, Paper } from "@mui/material";
 import { observer } from "mobx-react";
+import { apiStoreImpl } from "../../stores/apiStore";
 
 const test = [1, 2, 3, 4, 5];
+interface StoreCard {
+  storeCardApi: apiStoreImpl;
+}
 
-const StoreCard: React.FC = observer(() => {
+const StoreCard: React.FC<StoreCard> = observer(({ storeCardApi }) => {
   return (
     <Box>
       {test.map((item) => {

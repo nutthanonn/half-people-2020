@@ -5,7 +5,7 @@ import { Box, Typography, Divider } from "@mui/material";
 const StoreCardTitle: React.FC = () => {
   return (
     <Box>
-      <Box sx={{ ml: 3 }}>
+      <Box sx={{ ml: 3, border: 1 }}>
         <Box
           sx={{
             display: "flex",
@@ -28,6 +28,8 @@ const StoreCardTitle: React.FC = () => {
             <Typography color="gray">
               อาหารทั่วไป อาหารตามสั่ง อาหารจานเดียว
             </Typography>
+            <Typography>s</Typography>
+            <Typography>s</Typography>
           </Box>
         </Box>
         <Box>

@@ -90,6 +90,12 @@ export class apiStoreImpl {
     }
     return [];
   }
+
+  StoreCard() {
+    if (this.Api.merchants) {
+      return this.Api.merchants;
+    }
+  }
 }
 
 export const apiStore = new apiStoreImpl();

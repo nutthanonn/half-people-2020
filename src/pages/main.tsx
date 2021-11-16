@@ -21,7 +21,7 @@ const Main: React.FC = () => {
             </Grid>
             <Grid md={9}>
               <Box sx={{ mx: 2, ml: 5 }}>
-                <StoreCard />
+                <StoreCard storeCardApi={apiStore} />
               </Box>
             </Grid>
           </Grid>
