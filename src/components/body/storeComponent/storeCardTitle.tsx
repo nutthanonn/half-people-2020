@@ -53,6 +53,7 @@ const StoreCardTitle: React.FC<StoreCardTitleProps> = ({
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
+              flexWrap: "wrap",
             }}
           >
             <Typography color="gray" sx={{ fontSize: 13 }}>
@@ -74,7 +75,7 @@ const StoreCardTitle: React.FC<StoreCardTitleProps> = ({
             )}
           </Box>
         </Box>
-        <Divider sx={{ width: 500, my: 2 }} />
+        <Divider sx={{ my: 2 }} />
         <Box>
           <StoreCardSubtitle
             highlightText={highlightText}

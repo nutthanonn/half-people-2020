@@ -1,10 +1,10 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Skeleton } from "@mui/material";
 
 const SkaletonCard: React.FC = () => {
   return (
     <Box>
-      <p>Hello</p>
+      <Skeleton />
     </Box>
   );
 };

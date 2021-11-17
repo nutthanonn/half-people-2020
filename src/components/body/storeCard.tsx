@@ -24,7 +24,7 @@ interface stateItem {
 }
 
 const StoreCard: React.FC<StoreCardProps> = observer(({ storeCardApi }) => {
-  const [data, setData] = useState<stateItem[]>([]);
+  const [data, setData] = useState<stateItem[] | null>(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -35,37 +35,55 @@ const StoreCard: React.FC<StoreCardProps> = observer(({ storeCardApi }) => {
 
   return (
     <Box>
-      {data.map((item) => {
-        return (
-          <Paper
-            elevation={0}
-            square
-            sx={{
-              border: 1,
-              borderColor: "#E0EBF0",
-              display: "flex",
-              flexDirection: "row",
-              mb: 1.5,
-            }}
-          >
-            <StoreCardImage imageTag={item.coverImageId} />
-            {/* Text component */}
-            <Box sx={{ mt: 1.5, ml: 0.5 }}>
-              <StoreCardTitle
-                shopName={item.shopNameTH}
-                subCategoriesName={item.subcategoryName}
-                priceLevel={item.priceLevel}
-                isOpen={item.isOpen}
-                addressDistrictName={item.addressDistrictName}
-                addressProvinceName={item.addressProvinceName}
-                highlightText={item.highlightText}
-                facilities={item.facilities}
-                recommendedItems={item.recommendedItems}
-              />
-            </Box>
-          </Paper>
-        );
-      })}
+      {data && (
+        <Paper
+          elevation={0}
+          square
+          sx={{
+            border: 1,
+            borderColor: "#E0EBF0",
+            display: "flex",
+            flexDirection: "row",
+            mb: 1.5,
+            height: 240,
+          }}
+        >
+          <Box>
+            <p>Hello</p>
+          </Box>
+        </Paper>
+      )}
+      {/* {data &&
+        data.map((item) => {
+          return (
+            <Paper
+              elevation={0}
+              square
+              sx={{
+                border: 1,
+                borderColor: "#E0EBF0",
+                display: "flex",
+                flexDirection: "row",
+                mb: 1.5,
+              }}
+            >
+              <StoreCardImage imageTag={item.coverImageId} />
+              <Box sx={{ mt: 1.5, ml: 0.5 }}>
+                <StoreCardTitle
+                  shopName={item.shopNameTH}
+                  subCategoriesName={item.subcategoryName}
+                  priceLevel={item.priceLevel}
+                  isOpen={item.isOpen}
+                  addressDistrictName={item.addressDistrictName}
+                  addressProvinceName={item.addressProvinceName}
+                  highlightText={item.highlightText}
+                  facilities={item.facilities}
+                  recommendedItems={item.recommendedItems}
+                />
+              </Box>
+            </Paper>
+          );
+        })} */}
     </Box>
   );
 });

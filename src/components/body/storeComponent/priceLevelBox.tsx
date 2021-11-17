@@ -16,6 +16,7 @@ const PriceLevelBox: React.FC<PriceLevelBoxProps> = ({ priceLevel }) => {
         name="read-only"
         value={priceLevel}
         readOnly
+        max={4}
         icon="฿"
         sx={{ color: "black", fontSize: 13 }}
         emptyIcon="฿"

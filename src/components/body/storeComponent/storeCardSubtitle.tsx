@@ -40,10 +40,28 @@ const StoreCardTitle: React.FC<StoreCardTitleProps> = ({
           );
         })}
       </Box>
-      <Box sx={{ display: "flex", flexDirection: "row", mt: 2 }}>
-        <IconButton sx={{ border: 1, borderColor: "#5EC038" }}>
-          <AiFillCar color="#5EC038" size="20" />
-        </IconButton>
+      <Box sx={{ display: "flex", flexDirection: "row", mt: 4 }}>
+        {facilities?.map((item) => {
+          if (item === "ที่จอดรถ") {
+            return (
+              <IconButton sx={{ border: 1, borderColor: "#5EC038", ml: 1 }}>
+                <AiFillCar color="#5EC038" size="20" />
+              </IconButton>
+            );
+          } else if (item === "รับจองล่วงหน้า") {
+            return (
+              <IconButton sx={{ border: 1, borderColor: "#5EC038", ml: 1 }}>
+                <AiFillCar color="#5EC038" size="20" />
+              </IconButton>
+            );
+          } else {
+            return (
+              <IconButton sx={{ border: 1, borderColor: "#5EC038", ml: 1 }}>
+                <AiFillCar color="#5EC038" size="20" />
+              </IconButton>
+            );
+          }
+        })}
       </Box>
     </Box>
   );
