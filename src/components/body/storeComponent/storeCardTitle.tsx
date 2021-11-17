@@ -43,7 +43,10 @@ const StoreCardTitle: React.FC<StoreCardTitleProps> = ({
               alignItems: "center",
             }}
           >
-            <Typography variant="h6">
+            <Typography
+              variant="h6"
+              sx={{ fontSize: { md: 20, sm: 15, xs: 15 } }}
+            >
               <b>{shopName}</b>
             </Typography>
             <OpenClose status={isOpen} />
@@ -56,7 +59,10 @@ const StoreCardTitle: React.FC<StoreCardTitleProps> = ({
               flexWrap: "wrap",
             }}
           >
-            <Typography color="gray" sx={{ fontSize: 13 }}>
+            <Typography
+              color="gray"
+              sx={{ fontSize: { md: 13, sm: 10, xs: 10 } }}
+            >
               {subCategoriesName} &nbsp;
             </Typography>
 
@@ -67,7 +73,10 @@ const StoreCardTitle: React.FC<StoreCardTitleProps> = ({
             )}
 
             {addressDistrictName || addressProvinceName ? (
-              <Typography color="gray" sx={{ fontSize: 13 }}>
+              <Typography
+                color="gray"
+                sx={{ fontSize: { md: 13, sm: 10, xs: 10 } }}
+              >
                 | &nbsp;{addressDistrictName} {addressProvinceName}
               </Typography>
             ) : (

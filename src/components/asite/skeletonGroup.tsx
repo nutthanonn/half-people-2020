@@ -7,22 +7,22 @@ export const SkeletonTypeChoice: React.FC = () => {
       <FormControlLabel
         value="Skeleton"
         control={<Radio />}
-        label={<Skeleton variant="text" width={250} animation="wave" />}
+        label={<Skeleton variant="text" width={100} animation="wave" />}
       />
       <FormControlLabel
         value="Skeleton"
         control={<Radio />}
-        label={<Skeleton variant="text" width={250} animation="wave" />}
+        label={<Skeleton variant="text" width={100} animation="wave" />}
       />
       <FormControlLabel
         value="Skeleton"
         control={<Radio />}
-        label={<Skeleton variant="text" width={250} animation="wave" />}
+        label={<Skeleton variant="text" width={100} animation="wave" />}
       />
       <FormControlLabel
         value="Skeleton"
         control={<Radio />}
-        label={<Skeleton variant="text" width={250} animation="wave" />}
+        label={<Skeleton variant="text" width={100} animation="wave" />}
       />
     </Box>
   );

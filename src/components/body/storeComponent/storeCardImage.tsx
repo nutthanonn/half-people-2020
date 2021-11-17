@@ -12,7 +12,7 @@ const StoreCardImage: React.FC<StoreCardImageProps> = ({ imageTag }) => {
         sx={{
           p: 0.5,
           display: "flex",
-          justifyContent: "center",
+          justifyContent: { md: "center" },
           overflow: "hidden",
           backgroundSize: "cover",
         }}
@@ -21,7 +21,11 @@ const StoreCardImage: React.FC<StoreCardImageProps> = ({ imageTag }) => {
           component="img"
           src={imageTag}
           alt=""
-          sx={{ width: 275, height: 240 }}
+          sx={{
+            width: { md: 275, sm: "100%", xs: "100%" },
+            height: { md: 240, sm: 250, xs: 250 },
+            backgroundSize: "cover",
+          }}
         />
       </Box>
     </Box>

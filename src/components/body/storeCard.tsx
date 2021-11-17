@@ -65,13 +65,13 @@ const StoreCard: React.FC<StoreCardProps> = observer(({ storeCardApi }) => {
               sx={{
                 border: 1,
                 borderColor: "#E0EBF0",
-                display: { xs: "none", sm: "none", md: "flex" },
-                flexDirection: "row",
+                display: { xs: "flex", sm: "flex", md: "flex" },
+                flexDirection: { md: "row", sm: "column", xs: "column" },
                 mb: 1.5,
               }}
             >
               <StoreCardImage imageTag={item.coverImageId} />
-              <Box sx={{ mt: 1.5, ml: 0.5 }}>
+              <Box sx={{ mt: 1.5 }}>
                 <StoreCardTitle
                   shopName={item.shopNameTH}
                   subCategoriesName={item.subcategoryName}

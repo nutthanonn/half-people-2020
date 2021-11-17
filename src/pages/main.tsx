@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import Header from "../components/header/header";
 import { apiStore } from "../stores/apiStore";
 import Asite from "../components/Asite";
@@ -14,15 +14,17 @@ const Main: React.FC = () => {
       <BreadcrumbsTab />
       <Title title={apiStore} />
       <Box sx={{ mt: 5 }}>
-        <Box sx={{ mx: 2, my: 2 }}>
+        <Box sx={{ my: 2 }}>
           <Grid container sx={{ mt: 3 }}>
             <Grid item md={3}>
-              <Asite />
+              <Container>
+                <Asite />
+              </Container>
             </Grid>
             <Grid md={9}>
-              <Box sx={{ mx: 2, ml: 5 }}>
+              <Container>
                 <StoreCard storeCardApi={apiStore} />
-              </Box>
+              </Container>
             </Grid>
           </Grid>
         </Box>

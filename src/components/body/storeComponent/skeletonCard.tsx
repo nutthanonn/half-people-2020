@@ -3,7 +3,12 @@ import { Box, Divider, Skeleton } from "@mui/material";
 
 const SkaletonCard: React.FC = () => {
   return (
-    <Box sx={{ display: "flex", flexDirection: "row" }}>
+    <Box
+      sx={{
+        display: { xs: "flex", sm: "flex", md: "flex" },
+        flexDirection: { md: "row", sm: "column", xs: "column" },
+      }}
+    >
       <Box
         sx={{
           display: "flex",
@@ -14,8 +19,10 @@ const SkaletonCard: React.FC = () => {
       >
         <Skeleton
           variant="rectangular"
-          width={270}
-          height={240}
+          sx={{
+            width: { md: 275, sm: "100%", xs: "100%" },
+            height: { md: 240, sm: 250, xs: 250 },
+          }}
           animation="wave"
         />
       </Box>
@@ -34,7 +41,7 @@ const SkaletonCard: React.FC = () => {
               alignItems: "center",
             }}
           >
-            <Skeleton variant="text" width={275} animation="wave" />
+            <Skeleton variant="text" width={205} animation="wave" />
           </Box>
           <Box
             sx={{
@@ -44,7 +51,7 @@ const SkaletonCard: React.FC = () => {
               flexWrap: "wrap",
             }}
           >
-            <Skeleton variant="text" width={400} animation="wave" />
+            <Skeleton variant="text" width={220} animation="wave" />
           </Box>
           <Divider sx={{ my: 2 }} />
           <Box>

@@ -26,23 +26,35 @@ const StoreCardTitle: React.FC<StoreCardTitleProps> = ({
   return (
     <Box>
       {text && (
-        <Box sx={{ fontSize: 13, my: 1, color: "gray" }}>
+        <Box
+          sx={{ fontSize: { md: 15, sm: 10, xs: 10 }, my: 1, color: "gray" }}
+        >
           <div dangerouslySetInnerHTML={{ __html: text }} />
         </Box>
       )}
       {!text && <Skeleton variant="text" width={250} animation="wave" />}
 
       <Box sx={{ display: "flex", flexDirection: "row" }}>
-        <Typography sx={{ fontSize: 13 }}>แนะนำ:</Typography>
+        <Typography sx={{ fontSize: { md: 15, sm: 10, xs: 10 } }}>
+          แนะนำ:
+        </Typography>
         {recommendedItems.map((item: any) => {
           return (
-            <Typography sx={{ fontSize: 13, color: "gray" }}>
+            <Typography
+              sx={{ fontSize: { md: 15, sm: 10, xs: 10 }, color: "gray" }}
+            >
               &nbsp; {item}
             </Typography>
           );
         })}
       </Box>
-      <Box sx={{ display: "flex", flexDirection: "row", mt: 4 }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          my: { md: 3, xs: 2, sm: 2 },
+        }}
+      >
         {facilities?.map((item) => {
           if (item === "ที่จอดรถ") {
             return (
