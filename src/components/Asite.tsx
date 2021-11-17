@@ -12,7 +12,7 @@ const Asite: React.FC = () => {
       sx={{
         border: 1,
         bgcolor: "white",
-        display: { sm: "none", md: "flex" },
+        display: { xs: "none", sm: "none", md: "flex" },
         borderColor: "blue",
       }}
     >

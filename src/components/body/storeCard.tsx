@@ -65,7 +65,7 @@ const StoreCard: React.FC<StoreCardProps> = observer(({ storeCardApi }) => {
               sx={{
                 border: 1,
                 borderColor: "#E0EBF0",
-                display: "flex",
+                display: { xs: "none", sm: "none", md: "flex" },
                 flexDirection: "row",
                 mb: 1.5,
               }}

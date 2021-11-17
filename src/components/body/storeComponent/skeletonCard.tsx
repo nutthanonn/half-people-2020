@@ -12,7 +12,12 @@ const SkaletonCard: React.FC = () => {
           p: 0.2,
         }}
       >
-        <Skeleton variant="rectangular" width={270} height={240} />
+        <Skeleton
+          variant="rectangular"
+          width={270}
+          height={240}
+          animation="wave"
+        />
       </Box>
       <Box sx={{ ml: 3 }}>
         <Box
@@ -29,7 +34,7 @@ const SkaletonCard: React.FC = () => {
               alignItems: "center",
             }}
           >
-            <Skeleton variant="text" width={250} animation="wave" />
+            <Skeleton variant="text" width={275} animation="wave" />
           </Box>
           <Box
             sx={{
@@ -43,8 +48,8 @@ const SkaletonCard: React.FC = () => {
           </Box>
           <Divider sx={{ my: 2 }} />
           <Box>
-            <Skeleton variant="text" width={400} animation="wave" />
-            <Skeleton variant="text" width={400} animation="wave" />
+            <Skeleton variant="text" width={300} animation="wave" />
+            <Skeleton variant="text" width={250} animation="wave" />
           </Box>
           <Box sx={{ display: "flex", flexDirection: "row", mt: 2 }}>
             <Skeleton
