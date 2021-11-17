@@ -26,7 +26,7 @@ const StoreCardTitle: React.FC<StoreCardTitleProps> = ({
   return (
     <Box>
       {text && (
-        <Box sx={{ fontSize: 13, my: 1 }}>
+        <Box sx={{ fontSize: 13, my: 1, color: "gray" }}>
           <div dangerouslySetInnerHTML={{ __html: text }} />
         </Box>
       )}
