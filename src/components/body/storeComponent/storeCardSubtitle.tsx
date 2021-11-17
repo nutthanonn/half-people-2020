@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography, Skeleton, IconButton } from "@mui/material";
+import { Box, Typography, Skeleton, IconButton, Tooltip } from "@mui/material";
 import { AiFillCar } from "react-icons/ai";
+import { MdOutlineBookmarkAdded } from "react-icons/md";
+import { GiSittingDog } from "react-icons/gi";
 
 interface StoreCardTitleProps {
   highlightText?: string;
@@ -35,7 +37,7 @@ const StoreCardTitle: React.FC<StoreCardTitleProps> = ({
         {recommendedItems.map((item: any) => {
           return (
             <Typography sx={{ fontSize: 13, color: "gray" }}>
-              &nbsp; {item} &nbsp;
+              &nbsp; {item}
             </Typography>
           );
         })}
@@ -44,21 +46,27 @@ const StoreCardTitle: React.FC<StoreCardTitleProps> = ({
         {facilities?.map((item) => {
           if (item === "ที่จอดรถ") {
             return (
-              <IconButton sx={{ border: 1, borderColor: "#5EC038", ml: 1 }}>
-                <AiFillCar color="#5EC038" size="20" />
-              </IconButton>
+              <Tooltip title={item}>
+                <IconButton sx={{ border: 1, borderColor: "#5EC038", ml: 1 }}>
+                  <AiFillCar color="#5EC038" size="20" />
+                </IconButton>
+              </Tooltip>
             );
           } else if (item === "รับจองล่วงหน้า") {
             return (
-              <IconButton sx={{ border: 1, borderColor: "#5EC038", ml: 1 }}>
-                <AiFillCar color="#5EC038" size="20" />
-              </IconButton>
+              <Tooltip title={item}>
+                <IconButton sx={{ border: 1, borderColor: "#5EC038", ml: 1 }}>
+                  <MdOutlineBookmarkAdded color="#5EC038" size="20" />
+                </IconButton>
+              </Tooltip>
             );
           } else {
             return (
-              <IconButton sx={{ border: 1, borderColor: "#5EC038", ml: 1 }}>
-                <AiFillCar color="#5EC038" size="20" />
-              </IconButton>
+              <Tooltip title={item}>
+                <IconButton sx={{ border: 1, borderColor: "#5EC038", ml: 1 }}>
+                  <GiSittingDog color="#5EC038" size="20" />
+                </IconButton>
+              </Tooltip>
             );
           }
         })}

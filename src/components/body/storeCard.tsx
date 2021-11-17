@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import StoreCardTitle from "./storeComponent/storeCardTitle";
 import StoreCardImage from "./storeComponent/storeCardImage";
+import SkaletonCard from "./storeComponent/skeletonCard";
 import { Box, Paper } from "@mui/material";
 import { observer } from "mobx-react";
 import { apiStoreImpl } from "../../stores/apiStore";
@@ -23,6 +24,8 @@ interface stateItem {
   addressDistrictName?: string;
 }
 
+const skeletonBox = [1, 2, 3, 4];
+
 const StoreCard: React.FC<StoreCardProps> = observer(({ storeCardApi }) => {
   const [data, setData] = useState<stateItem[] | null>(null);
 
@@ -35,25 +38,25 @@ const StoreCard: React.FC<StoreCardProps> = observer(({ storeCardApi }) => {
 
   return (
     <Box>
-      {data && (
-        <Paper
-          elevation={0}
-          square
-          sx={{
-            border: 1,
-            borderColor: "#E0EBF0",
-            display: "flex",
-            flexDirection: "row",
-            mb: 1.5,
-            height: 240,
-          }}
-        >
-          <Box>
-            <p>Hello</p>
-          </Box>
-        </Paper>
-      )}
-      {/* {data &&
+      {!data &&
+        skeletonBox.map(() => {
+          return (
+            <Paper
+              elevation={0}
+              square
+              sx={{
+                border: 1,
+                borderColor: "#E0EBF0",
+                display: "flex",
+                flexDirection: "column",
+                mb: 1.5,
+              }}
+            >
+              <SkaletonCard />
+            </Paper>
+          );
+        })}
+      {data &&
         data.map((item) => {
           return (
             <Paper
@@ -83,7 +86,7 @@ const StoreCard: React.FC<StoreCardProps> = observer(({ storeCardApi }) => {
               </Box>
             </Paper>
           );
-        })} */}
+        })}
     </Box>
   );
 });
