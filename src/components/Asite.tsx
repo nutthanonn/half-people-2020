@@ -16,7 +16,7 @@ const Asite: React.FC = () => {
         display: { xs: "none", sm: "none", md: "flex" },
       }}
     >
-      <Box sx={{ pl: 2.2 }}>
+      <Box sx={{ pl: 2.2, width: "100%" }}>
         <RadioTab categoriesNameApi={apiStore} />
         <NearProvince nearProvinceApi={apiStore} />
         <PriceofRange priceofRange={apiStore} />

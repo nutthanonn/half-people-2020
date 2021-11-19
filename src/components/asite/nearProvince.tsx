@@ -31,6 +31,7 @@ const NearProvince: React.FC<SelecterProps> = observer(
             <Select
               sx={{
                 height: 30,
+                "& .MuiSelect-select": { width: "90%" },
               }}
               size="small"
               defaultValue={values}
