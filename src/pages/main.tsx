@@ -10,7 +10,9 @@ import Title from "../components/asite/title";
 const Main: React.FC = () => {
   return (
     <Box>
-      <Header provincesApi={apiStore} />
+      <Box>
+        <Header provincesApi={apiStore} />
+      </Box>
       <BreadcrumbsTab />
       <Title title={apiStore} />
       <Box sx={{ mt: 5 }}>

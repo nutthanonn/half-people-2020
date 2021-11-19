@@ -20,7 +20,9 @@ const Title: React.FC<TitleProps> = observer(({ title }) => {
 
   return (
     <Box sx={{ ml: 2, my: 2 }}>
-      <Typography variant="h6">ผลการค้นหา {text} ทั้งหมด</Typography>
+      <Typography variant="h6" sx={{ fontSize: { md: 20, sm: 15, xs: 15 } }}>
+        ผลการค้นหา {text} ทั้งหมด
+      </Typography>
     </Box>
   );
 });

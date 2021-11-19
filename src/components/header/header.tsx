@@ -16,6 +16,7 @@ import { apiStoreImpl } from "../../stores/apiStore";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoLocationSharp } from "react-icons/io5";
 import { AiOutlineSearch } from "react-icons/ai";
+import MobileNavbar from "./mobile/mobileNavbar";
 
 interface HeaderProps {
   provincesApi: apiStoreImpl;
@@ -37,7 +38,7 @@ const Header: React.FC<HeaderProps> = observer(({ provincesApi }) => {
       <CssBaseline />
       <Container
         sx={{
-          display: "flex",
+          display: { md: "flex", sm: "none", xs: "none" },
           p: 2,
           alignItems: "center",
         }}
@@ -119,6 +120,17 @@ const Header: React.FC<HeaderProps> = observer(({ provincesApi }) => {
             <AiOutlineSearch />
           </Button>
         </ButtonGroup>
+      </Container>
+      <Container
+        sx={{
+          display: {
+            md: "none",
+            sm: "flex",
+            xs: "flex",
+          },
+        }}
+      >
+        <MobileNavbar />
       </Container>
     </Box>
   );
