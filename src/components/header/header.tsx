@@ -11,6 +11,7 @@ import {
   ButtonGroup,
   Button,
 } from "@mui/material";
+import Logo from "../../images/logoDesktop.png";
 import { observer } from "mobx-react";
 import { apiStoreImpl } from "../../stores/apiStore";
 import { IoIosArrowDown } from "react-icons/io";
@@ -43,8 +44,10 @@ const Header: React.FC<HeaderProps> = observer(({ provincesApi }) => {
           alignItems: "center",
         }}
       >
-        <Box sx={{ flexGrow: 1 }}>
-          <Typography>Hello</Typography>
+        <Box sx={{ flexGrow: 1, mr: 1 }}>
+          <Box>
+            <img src={Logo} width="100%" height="50" />
+          </Box>
         </Box>
         <ButtonGroup sx={{ width: "90%" }}>
           <FormControl

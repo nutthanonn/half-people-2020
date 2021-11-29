@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import DrawerItem from "./drawerItem";
 import { RiFilterLine } from "react-icons/ri";
+import Logo from "../../../images/logomobile.png";
 
 const MobileNavbar: React.FC = () => {
   const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(false);
@@ -28,7 +29,7 @@ const MobileNavbar: React.FC = () => {
       >
         <Toolbar>
           <Box>
-            <Typography>Logo</Typography>
+            <img src={Logo} width="100" />
           </Box>
           <ButtonGroup sx={{ ml: { xs: 0.5, sm: 1.5 }, flexGrow: 1 }}>
             <Box sx={{ width: "100%" }}>
